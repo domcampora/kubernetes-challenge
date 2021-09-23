@@ -1,27 +1,15 @@
-# Kubernetes challenge
+# Kubernetes Challenge
+Project was tested on Minikube with MacOS.
+To Run the project, you need to to run run.sh
+After testing, run minikube stop to stop the environment that is created.
 
-Deploy this application to [Minikube](https://github.com/kubernetes/minikube) and customise the environment variable to display your name.
-
-```
-$ curl $(minikube ip)
-Hello Dan!
-```
-
-## Instructions
-
-- Fork this repo
-- Build the Docker image
-- Write yaml files for a deployment, service, ingress and configmap
-- Deploy your application to Minikube
-- You should be able to `curl` Minikube's ip and retrieve the string `Hello {yourname}!`
-- Commit your files to Github
-
-## Notes
-
-There's no need to push the Docker image to a Docker registry. You should be able to build and use the image from within Minikube.
-
-You can expose Minikube's Docker daemon with:
-
-```shell
-$ eval (minkube docker-env)
-```
+Project Steps:
+1. Installed DOcker and Minikube
+2. Built the docker image with a specific path 
+3. Start minikube, installed addons
+4. Created namespace
+5. Created a deployment (kubectl apply etc)
+6. Exposed deployment to service inside of the cluster 
+7. Exposed the deployment outside of the cluster
+8. Created a tunnel between the minikube VM and our local VM
+9. Reach application by calling localhost
