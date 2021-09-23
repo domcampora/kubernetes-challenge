@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-challenge
+  namespace: kubernetes-challenge
+  labels:
+    app: nodejs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: dominik
+        image: kubernetes:v1
+        imagePullPolicy: IfNotPresent
+        ports: 
+        - containerPort: 4000
+          name: http
+        env:
+        - name: NAME
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: NAME
